@@ -22,7 +22,7 @@ These are original requriements stated in the download:
 7. If PSdZData version is newer or older than app version, go to download folder and under files_only_for_manual_install, double click AppCheckDisable_to_use_different_DBs.reg to import keys to enable mismatched app and database version
 8. The installation is complete and it should take about 380G spaces
 
-## Prepare to code vehicle
+## Prepare to program vehicle
 1. Read the ISTA help file FIRST
 2. On laptop
    - disable firewall and real-time protection
