@@ -22,6 +22,12 @@ These are original requriements stated in the download:
 7. If PSdZData version is newer or older than app version, go to download folder and under files_only_for_manual_install, double click AppCheckDisable_to_use_different_DBs.reg to import keys to enable mismatched app and database version
 8. The installation is complete and it should take about 380G spaces
 
+# Vehicle software upgrade
+## Choice of battery charger
+The whole process time varies by vehicle, some BMW owners reported 30-50min. My experience this time is around 30min for the programming part. But follow-on process can take some extra time, plus the panic after seen some errors. 
+
+You may survive without a battery charger if you have 50%+ charged healthy battery. I think a battery charger with 12V 8A is largely enough, but I bought a Topdon Tornado30000 which has a supply mode for 12V which can go up to 30A, feels like an overkill in hindsight, the the product is nice so keeping it.
+
 ## Prepare to program vehicle
 1. Read the ISTA help file FIRST
 2. On laptop
@@ -31,28 +37,30 @@ These are original requriements stated in the download:
 3. On vehicle
    - Make sure vehicle is parked correctly (and electric parking brake applied)
    - export user profile
-   - disable child-lock if that was enabled
+   - disable child-lock if that was enabled (not sure if needed, just in case)
    - disconnect any additional devices (for example, dashcam) to save power drain
-   - remove all connected phones in vehicle (or alternatively, place relevant phones in air-safe mode)
+   - remove all connected phones in vehicle settings (or alternatively, place relevant phones in air-safe mode)
    - make sure front passenger seat has no load
    - Open bonnet and connect battery charger to positive and ground access points, and make sure battery has at least 50% (just a safe measure)
 
 ## Connecting to vehicle and start programming
-1. Turn on ignition
-2. Click driver belt and leave driver door physically open
-3. Connect enet cable to the car
-4. Open ISTA
-5. In ISTA, Operations tab/New/Read-out vehicle data and click on Complete identification, background processes will run and in the end, ECU trees will show
-6. Go to Vehicle management/Software update/Comfort tab, it will calculate the service plan, after calculation, click on display service plan to see the contents
-7. Then click on execute service plan, and the programming (flashing ECUs process) will start, the vehicle system will shutdown, and a bootloader will appear to show status of data transfer, status is also shown in ISTA on laptop
-8. The system will restart after data transition and encodings are complete, let ISTA finish the residual processes
-9. Whan asked to close door, route laptop power cable under the driver door and sit on driver seat and close driver door. This is for door and window initialisations
-10. Some initialisation process may fail and many error will come in the vehicle, DO NOT PANIC YET, let ISTA finish
-11. After ISTA has finished, if it says there are residual plans and errors, terminate the operation for now. After that disconnect cable and turn off ignition. Go for some coffee and food, leave for at least 15min
-12. Come back and turn ignition on, and connect cable and ISTA and continue the residual plan. Most of errors should be gone, even some left, seems not impacting usage at all
-13. When you see no major errors, especially in your vehicle screen, disconnect everything properly and go for a test drive
+1. Place key in vehicle
+2. Turn on ignition
+3. Click driver belt and leave driver door physically open
+4. Connect ENET cable to the car
+5. Open ISTA
+6. In ISTA, Operations tab/New/Read-out vehicle data and click on Complete identification, background processes will run and in the end, ECU trees will show
+7. You will receive voltage below threshold warning, and KL15 and KL30 on ISTA will show no value, this is normal, voltage observation is not possible via direct ENET connection (which is why people always say ICOM recommended I guess, but anyway, you can still do without) Alternatively, there are some cigarette USB chargers with voltage showing on it, place it in cigarette charger to observe voltage
+8. Go to Vehicle management/Software update/Comfort tab, it will calculate the service plan, after calculation, click on display service plan to see the contents
+9. Then click on execute service plan, and the programming (flashing ECUs process) will start, the vehicle system will shutdown, and a bootloader will appear to show status of data transfer, status is also shown in ISTA on laptop
+10. The system will restart after data transition and encodings are complete, let ISTA finish the residual processes
+11. Whan asked to close door, route laptop power cable under the driver door and sit on driver seat and close driver door. This is for door and window initialisations
+12. Some initialisation process may fail and many error will come in the vehicle, DO NOT PANIC YET, let ISTA finish
+13. After ISTA has finished, if it says there are residual plans and errors, terminate the operation for now. After that disconnect cable and turn off ignition. Go for some coffee and food, leave for at least 15min
+14. Come back and turn ignition on, and connect cable and ISTA and continue the residual plan. Most of errors should be gone, even some left, seems not impacting usage at all
+15. When you see no major errors, especially in your vehicle screen, disconnect everything properly and go for a test drive
 
 ## Difference post upgrade
 (Upgraded from F056-20-07-545 to F056-22-11-530)
-- Transmission seems smoother
+- Transmission seems smoother (some other BMW users reported same online)
 - No other changes for now, but I need a version later than 21-03 for various purposes
