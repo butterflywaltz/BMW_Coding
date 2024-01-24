@@ -64,3 +64,8 @@ You may survive without a battery charger if you have 50%+ charged healthy batte
 (Upgraded from F056-20-07-545 to F056-22-11-530)
 - Transmission seems smoother (some other BMW users reported same online)
 - No other changes for now, but I need a version later than 21-03 for various purposes
+
+## Other notes
+- If ISTA identified the transimission wrongly, do not panic, all that matters is if the ECUs are identified correctly, for automatic transmission, you should see EGS module, even if the ISTA says my vehicle is MANUAL (though it's really not), EGS was successfully identified and updated and post update it is still an automatic car
+- The time of update is very likely related to number of ECUs, MINI has a lot less ECUs so update time is much shorter than BMW. One way to check how much data is transmitted, is to check the version of system on vehicle, now mine shows MT-002.170.002 and TT-002.170.002, then you search in the data_swi/psdzdata/swe folder for 002_170 and calculate the total size of software transferred. In my case the total size of softwares is about 4Gb, and those are transferred within 20min
+- My driver seat belt was clicked during the upgrade process and I forgot to release it for the driver seat standardisation, this has resulted in a 8029C7 error in SWFA module, in stead of running the diagnosis, one can re-run the initialisation to clear this error: Vehicle Management -> Service Functions -> Body/Seats/Seat adjustment normalisation/Standardize driver's seat
