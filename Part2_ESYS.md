@@ -5,11 +5,18 @@ https://f80.bimmerpost.com/forums/showthread.php?t=1814782
 # Where to get FSC codes
 Send Shawn a PM and he will suggest contacts, I purchased OEM codes from Gerry <warpeddriveservices@gmail.com>
 
+# How to import FSC code
+See Shawn's guide, base64 conversion can be skipped in newer E-Sys now:  
+https://www.bimmerfest.com/threads/fsc-activation-code.674597/?post_id=7378290&nested_view=1&sortby=oldest#post-7378290
+
+Import FSC code first before VO and FDL code the functions.
+
 # About PSdZ data
 The differences between PSdZ lite and full is simply in psdzdata/swe folder. Within that folder:
 - fafp subfolder is needed for diagnosis (so ISTA+ diagnosis only install will include this)
 - In addition to fafp subfolder, cafd subfolder is needed for coding (VO and FDL coding)
 - All other folders contain software/firmware, and are only needed for programming/flashing
+- For coding, PSdZ data used by E-Sys must be >= (more recent than) the firmware/software (i-Step) version of car
 
 # Backup on first connection
 ## Connection via E-Sys (this is included in the start pack guide)
