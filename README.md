@@ -24,3 +24,11 @@ https://fuse-box.info/mini/mini-countryman-f60-2017-2022-fuses
 - Need e-sys for VO and FDL coding
 - Need FSC codes (7E and BF)
 - Need a Ethernet to OBD2 cable
+
+## Some observations post project
+- Lane Departure Warning is working but warning is only delivered through vibration, so if steering wheel has no vibration (if no heating, no vibration) then you won't get any warning...it's pretty stupid for BMW to do this...trying to figure out a way but so far no success
+- Changing from iDrive 5 to iDrive 6 Lite also means that some event view of center ring loses function, I quite like them, again pretty stupid to delete them from system, especially iDrive 6 is just a skin change:
+  - Auto Start/Stop
+  - Driving mode
+  - Menu selection
+- Sports Display: cannot figure out how to get it work only in M/S gear, even though check box is coded and shown and selected
