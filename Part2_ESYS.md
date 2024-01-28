@@ -44,5 +44,29 @@ This step is optional as they can be easily re-coded as long as you have origina
    Then 'Save' to save to a file, remember to put ECU name, diag addr, app num and index in the name, for example I saved as HU0x63_App0x9C_Idx0x01.fsc
 4. Repeat Step 3 for each FSC code in the ECU
 5. Repeat Step 2-4 for each ECU (ignore the ECUs without available FSCs, use information in Comfort Mode step 1)
-6. You now have your own FSC recovery pack if needed
+6. You now have your own FSC back-ups (note this may not be the recovery pack, I noticed that even if FSCCertStatus showing unavailable, the FSC are still imported using a certificate, so you don't have certficiate backup)
 
+## Procedure
+### Import FSC
+Received FSC file should be like FSC_YOURVIN_ABCDEFGH.fsc with a .der certificate. ABCD is the App number in hex, input like 0xABCD, and EFGH is the Upgrade Index in hex, input like 0xEFGH, in fact load a FSC file will input those App number and Upgrade Index automatically.    
+Repeat for all FSC codes:  
+Connect => Settings/FSC, select the right FSC certificate => Comfort Mode => FSC => Click 'Read FA (VCM)' => Input Diagnosic Address (KAFAS is 0x5D) => Identify => Browse your FSC file to load it, App Num and UpgIdx auto-filled => Click 'Upgrade FSC' to import and activate => 'Check FSC Status' to verify
+
+### VO Code 5AV -> 5AS (Retrofit of Driving Assistant)
+1. Edit and Validate FA  
+   Connect => Expert Mode => Coding => Vehicle Order box / Read => Save as FA_Upgrade_5AV_to_5AS_WRITE => click 'Edit'
+   In editor, expand to SALAPA Element => Change 5AV to 5AS in bottom window => Click on save button (top right of bottom window) => Right-click FA and select 'Calculate FP' to validate FA => Save button (top bar, disk button)
+2. Write FA to Vehicle  
+   Expert Mode => VCM => In the file tab, load saved FA file => Right-click FA and select 'Calculate FP' to activate => Go to Master tab next to it => Click 'Write FA FP'
+3. VO Code ECUs  
+   Expert Mode => Coding => Vehicle Order box / Read (now verify it's the new FA with 5AS read-out from vehicle) => On the right, click 'Read (ECU)' => Select each of HU, KAFAS, KOMBI and BDC, right click and select 'Code' (do it one-by-one, you should see no errors)
+4. Back-up coding
+   Select each of HU, KAFAS, KOMBI and BDC, right click and select 'Read Coding Data', back up the ncd files in C:/Data/CAF
+
+### VO Code Zeitkriterium to 0321 (Lane Departure Warning and new system look)  
+VO date code is more tricky, not in terms of progress, but in terms of effect. So one may use it to explore the FDL codes related to the change and then VO code back and apply selected FDLs. If your Zeitkriterium is later than 0321, skip this whole section.  
+1. Edit and Validate FA  
+   Same as previous, except this time change Zeiktriterium to 0321 (note, it is in mmyy format and not all dates are valid, usually, try Mar, Jul, Oct, Nov, usually goes with i-level date). Calculate FP and save as FA_VODate_2020_to_2021_NOWRITE
+2. DO NOT write this FA to vehicle, go to Coding, the modified FA will automatically be loaded (a prompt will ask if to do so)
+3. VO Code ECUs: HU, KAFAS, KOMBI and BDC
+4. Back-up coding
