@@ -78,3 +78,57 @@ VO date code is more tricky, not in terms of progress, but in terms of effect. S
 | KOMBI  | Speed Limit Information:<br>SPEED_LIMIT: nicht_aktiv (00) -> aktive (01)<br>HUD_SLI_WARNUNG_ENABLE: nicht_aktiv (00) -> aktive (01)<br>RCOG_TRSG_TIMEOUT: nicht_aktiv (00) -> aktive (01)<br>RCOG_TRSG_APPL: nicht_aktiv (00) -> aktive (01)<br>No-Pass Info:<br>ANZEIGE_NPI: nicht_aktiv (00) -> aktive (01)<br>Night Vision:<br>FGS_NIVI_KI_ENABLE: nicht_aktiv (00) -> aktive (01)<br>NIVI_ENABLE: nicht_aktiv (00) -> aktiv (01)<br>HUD_NIVI_ENABLE: nicht_aktiv (00) -> aktive (01)<br>High Beam Assist (effect to be seen):<br> ST_MAB_ASST_TIMEOUT: nicht_aktiv (00) -> aktive (01)<br>ST_MAB_ASST_APPL: nicht_aktiv (00) -> aktive (01)<br> Unknown:<br>STAT_OBJ_COOR_TIMEOUT: nicht_aktiv (00) -> aktive (01)<br>STAT_OBJ_COOR_APPL: nicht_aktiv (00) -> aktive (01)<br> | Seat Belt (does not seem right, to be reverted):<br> GURT_STATUS_BLINKEN: nicht_aktiv (00) -> aktiv (01)<br>GURT_FOND_STATUS: 3_sitze (02) -> generation_2 (04)<br>New UI:<br>FARBSET_NEU: alt (00) -> neu (01)<br>NAVICOLOR_TABLE: farbwelt_id5 (02) -> farbtabelle_2103 (03)<br>Lane Departure Warning:<br>TLC_VERBAUT: nicht_aktiv (00) -> aktiv (01)<br>ST_TLC_TIMEOUT: nicht_aktiv (00) -> aktiv (01)<br>ST_TLC_ALIVE: nicht_aktiv (00) -> aktiv (01)<br>ST_TLC_APPL: nicht_aktiv (00) -> aktiv (01)<br>Unknown (possibly LDW related):<br>ST_DISP_BLTW_TIMEOUT: nicht_aktiv (00) -> aktiv (01)<br>ST_DISP_BLTW_APPL: nicht_aktiv (00) -> aktiv (01)<br>ST_CS_TIMEOUT: nicht_aktiv (00) -> aktiv (01)<br>ST_CS_APPL: nicht_aktiv (00) -> aktiv (01)<br>|
 | KAFAS  | Speed Limit Information:<br>SLI_ON_OFF: RR01_off (00) -> F056 (01)<br>No pass info:<br>NPI_ON_OFF: RR01_off (00) -> F056 (01)<br>Pedestrian Alert:<br>PPP_SW_MODULE_ON_OFF: all_others (00)	-> F030 (01)<br>Admin:<br>CODING_DATE will update  | Lane Departure Warning:<br>SEND_MSG_18A: message_off (00) -> message_on (01)<br>SEND_MSG_327: message_off (00) -> message_on (01)<br>TLC_ON_OFF: TLC_off (00) -> TLC_on_F020_F030_F025 (01)<br> ACTUATOR_ON_OFF: all_others (00) -> vib_warn_on_F20_F30_F25 (01)<br>VIBRATION_VALUE: all_others (01,01,01,01,01,01,01,01) -> F045 (04,05,06,07,08,09,0A,0B)<br>Car Speed Warning (adds vibration):<br>CAR_SPEED_VIBRATION: F020 (3C,50,64,78,8C,A0,B4,DC) -> F001 (3C,50,64,78,8C,A0,B4,C8)|
 | BDC  | High Beam Assist (effect to be seen):<br> C_HBA_CAM_POS_Z: F015_KafasLow (75)	-> F015_KafasHigh (7E)<br>Pedestrian Alert:<br>PERSONEN_WARNUNG_TAG: nicht_aktiv (00) ->	aktiv (01)| Lane Depature Warning:<br>ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad: nichtaktiv (00) -> aktiv (01)<br> SENDER_QU_VIB_AMP: ST_VIB_AMP_LRE (00) -> NCD2: ST_VIB_AMP_EPS (01)<br>SPURVERLASSENS_WARNUNG: nichtaktiv (00) -> aktiv (01)<br>Heated Steering Wheel message:<br>LHZ_CCM: nicht_aktiv (00) -> aktiv (01)<br>Unknown:<br>AMBIENTE_FES_LAYER: Layer_1 (01) -> inaktiv (00)<br>PIA_DEFAULT_CS: Farbe_1 (01)	-> Farbwelt3_Farbe1 (31) |
+
+### Final FDL edit
+#### Lane Departure Warning
+- KAFAS: Use 0321 VO coded version is fine
+- HU:
+  - Use 0321 VO coded version
+  - FDL: SPURVERLASSENSWARNZEITPUNKT = gen_1 (01)
+- BDC:
+  - Code back to 2020 5AS VO version
+  - FDL:
+    1. ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad = aktiv (01)
+    2. ComAdapterPdu_327_Steuerung_Vibration_Lenkrad = aktiv (01) (maybe already aktiv)
+    3. PIA_DEFAULT_SPURVERLASSENS_WARNUNG = aktiv (01)
+    4. SPURVERLASSENS_WARNUNG = aktiv (01)
+- KOMBI:
+  - Code back to 2020 5AS VO version
+  - FDL:
+    1. TLC_VERBAUT = aktiv (01)
+    1. ST_TLC_TIMEOUT: nicht_aktiv (00) -> aktiv (01)
+    1. ST_TLC_ALIVE: nicht_aktiv (00) -> aktiv (01)
+    1. ST_TLC_APPL: nicht_aktiv (00) -> aktiv (01)  
+    Maybe also need:
+    1. ST_DISP_BLTW_TIMEOUT: nicht_aktiv (00) -> aktiv (01)
+    1. ST_DISP_BLTW_APPL: nicht_aktiv (00) -> aktiv (01)
+    1. ST_CS_TIMEOUT: nicht_aktiv (00) -> aktiv (01)
+    1. ST_CS_APPL: nicht_aktiv (00) -> aktiv (01)
+#### New UI Look
+- HU: HMI_ID_VERSION: id5_plus_plus (02) -> id6_light
+- KOMBI: 
+  NAVICOLOR_TABLE: farbwelt_id5 (02) -> farbtabelle_2103
+  FARBSET_NEU: alt (00) -> neu (01)  
+N.B: After upgrade to ID6_LITE, following event view of the central ring will disappear in setting menu (what a shame):
+- Auto Start/Stop (I quite like it...)
+- Driving mode (Also quite like it...)
+- Menu selection (doesn't care)
+#### Sports Display
+HU/3000/HUD_SPORTANZEIGE_ENABLE: Aktiv  
+HU/3000/HUD_SPORTANZEIGE_FES_ENABLE: Aktiv  
+HU/3000/HUD_SPORTANZEIGE_MS_GASSE_ENABLE: Aktiv  
+KOMBI/3003/HUD_SPORTANZEIGE_ENABLE: Aktiv  
+KOMBI/3003/HUD_SPORTANZEIGE_FES_ENABLE: Aktiv  
+KOMBI/3003/HUD_SPORTANZEIGE_MS_GASSE_ENABLE: Aktiv  
+KOMBI/3003/HUD_FAHRSTUFE_ENABLE: Aktiv  
+#### Remember last driving mode
+BDC/PfFesMaster/FesAllowMode2LastFunction: Aktiv  
+BDC/PfFesMaster/FesAllowMode4LastFunction: Aktiv  
+BDC/PfFesMaster/FesAllowMode7LastFunction: Aktiv  
+BDC/PfFesMaster/FesLastFunctionInterval: Immer_aktiv (FF)  
+#### Auto-fold mirror (implemented by change delay to 0sec, previously need to hold lock on keyfob by 1.5sec)
+BDC/3056/KOMFORT_SCHLIESSEN: 0x00
+#### Functions seems not possible to code:
+- Lane Departure Warning in HUD (doesn't seem possible in MINI F60)
+- Remember High Beam Assist last setting
+
