@@ -30,11 +30,11 @@ Connect => Expert Mode (on the left panel) => Coding (on the left panel) =>
 Vehicle Order (around the top in the right panel) => Press Read button to Read FA => Press Save to save to desired location
 ### SVT
 Connect => Expert Mode => Coding => Go to Coding box and press 'Read (ECU)' (NOT 'Read (VCM)') => Save to desired location
-### CAFD (FDL codes)
+### CAFD (FDL codes) [Optional]
 After ECU read, in the ECU list on the left, there are files with green dots. Select those files (one by one or hold control to select all of them), then Coding box/Read Coding Data.  
 The codes will be loaded in C:\Data\CAF, back-up those files in desired location.  
 This step is optional as they can be easily re-coded as long as you have original FA on hand.
-### FSC
+### FSC [Optional]
 1. Get diag address of ECUs:
    Connect => Comfort Mode => FSC => Check FSC status => note down the diag addresses, for example HU is 99 (0x63) and KAFAS is 93 (0x5D)  
 2. Get FSC code status:
