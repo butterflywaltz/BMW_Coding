@@ -1,0 +1,24 @@
+ComAdapterPdu_18A_Steuerung_Vibration_Lenkrad
+NCD1: nichtaktiv (00)	NCD2: aktiv (01)
+
+KOMFORT_SCHLIESSEN
+NCD1: wert_01 (0F)	NCD2: Werte (00)
+
+FesLastFunctionInterval
+NCD1: nicht_aktiv (00)	NCD2: immer_aktiv (FF)
+
+FesAllowMode2LastFunction
+NCD1: nicht_aktiv (00)	NCD2: aktiv (01)
+
+FesAllowMode4LastFunction
+NCD1: nicht_aktiv (00)	NCD2: aktiv (01)
+
+FesAllowMode7LastFunction
+NCD1: nicht_aktiv (00)	NCD2: aktiv (01)
+
+SPURVERLASSENS_WARNUNG
+NCD1: nicht_aktiv (00)	NCD2: aktiv (01)
+
+PIA_DEFAULT_SPURVERLASSENS_WARNUNG
+NCD1: nicht_aktiv (00)	NCD2: aktiv (01)
+
