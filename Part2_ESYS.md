@@ -70,3 +70,11 @@ VO date code is more tricky, not in terms of progress, but in terms of effect. S
 2. DO NOT write this FA to vehicle, go to Coding, the modified FA will automatically be loaded (a prompt will ask if to do so)
 3. VO Code ECUs: HU, KAFAS, KOMBI and BDC
 4. Back-up coding
+
+### Corresponding FDL codes for the above VO codings
+|ECU\FDL Changes   | SALAPA 5AV->5AS | VO Date 2020 -> 2021  |
+|---|---|---|
+| HU  | Related to Active Cruise Control (not need, effect to be observed): <br>ACC_SGN: nicht_aktiv (00) -> aktive (01)<br>Pedestrian Alert: <br>PERSONENWARNUNG_TAGS: nicht_aktiv (00) -> gen_1 (01)<br>PERSONEN_WARNUNG: nicht_aktiv (00) -> aktiv (01) |   |
+| KOMBI  | Speed Limit Information:<br>SPEED_LIMIT: nicht_aktiv (00) -> aktive (01)<br>HUD_SLI_WARNUNG_ENABLE: nicht_aktiv (00) -> aktive (01)<br>RCOG_TRSG_TIMEOUT: nicht_aktiv (00) -> aktive (01)<br>RCOG_TRSG_APPL: nicht_aktiv (00) -> aktive (01)<br>No-Pass Info:<br>ANZEIGE_NPI: nicht_aktiv (00) -> aktive (01)<br>Night Vision:<br>FGS_NIVI_KI_ENABLE: nicht_aktiv (00) -> aktive (01)<br>NIVI_ENABLE: nicht_aktiv (00) -> aktive (01)<br>HUD_NIVI_ENABLE: nicht_aktiv (00) -> aktive (01)<br>High Beam Assist:<br> ST_MAB_ASST_TIMEOUT: nicht_aktiv (00) -> aktive (01)<br>ST_MAB_ASST_APPL: nicht_aktiv (00) -> aktive (01)<br> Unknown:<br>STAT_OBJ_COOR_TIMEOUT: nicht_aktiv (00) -> aktive (01)<br>STAT_OBJ_COOR_APPL: nicht_aktiv (00) -> aktive (01)<br> |   |
+| KAFAS  |   |   |
+| BDC  |   |   |
