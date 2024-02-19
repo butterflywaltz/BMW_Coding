@@ -20,9 +20,10 @@ https://fuse-box.info/mini/mini-countryman-f60-2017-2022-fuses
 
 ## What is needed
 - Need a Windows 10 laptop (this was done by upgrading an old macbookpro)
-- Need ISTA+ for programming (don't know how to use e-sys to program), this will take about 380G of disk spaces, so definitely go for 1T SSD drives
-- Need e-sys for VO and FDL coding
-- Need FSC codes (7E and BF)
+- Need ISTA+ for programming (don't know how to use e-sys to program), this will take about 380G of disk spaces, so definitely go for 1T SSD drives [Free software]
+- Need e-sys for VO and FDL coding [Free software]
+- Need BimmerUtility for FDL editing [Payment needed]
+- Need FSC codes (7E and BF) [Payment needed as these are OEM codes]
 - Need a Ethernet to OBD2 cable
 
 ## Some observations post project
