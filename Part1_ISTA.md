@@ -1,3 +1,7 @@
+# How to check i-level/i-step
+i-level = i-step means integration level, is the version of firmware assembly used by the ECUs.  
+In vehicle menu, navigate to a driver profile, and export to USB. On a laptop, open the exported profile in a text editor (notepad for example), and you will see <i-Step> tag and you should see a version number like yy-mm-xxx (yy is year, mm is month)
+
 # ISTA installation
 ## Where to get ISTA+
 You should get it FREE. In this thread, there is a google drive link and there is torrent file for ISTA+ 4.39.20 stand-alone.
