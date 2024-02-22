@@ -1,5 +1,5 @@
 # BMW_Coding
-**Programming and flash has risks, read as much as possible to be aware of possible risks and outcomes and proceed at own risk.**
+**Programming and coding has risks, read as much as possible to be aware of possible risks and outcomes and proceed at own risk.**
 
 ## Background
 Recently bought a MINI Countryman F60 LCI registered end 2020. There is a big software update in Mar 2021 for that model, so most of the LCI models are getting the new software, early built ones missed out. Trying to retrofit that and also wants to retrofit Driving Assistant (pedestrian recognition and traffic sign info)
