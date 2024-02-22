@@ -1,4 +1,6 @@
 # BMW_Coding
+**Programming and flash has risks, read as much as possible to be aware of possible risks and outcomes and proceed at own risk.**
+
 ## Background
 Recently bought a MINI Countryman F60 LCI registered end 2020. There is a big software update in Mar 2021 for that model, so most of the LCI models are getting the new software, early built ones missed out. Trying to retrofit that and also wants to retrofit Driving Assistant (pedestrian recognition and traffic sign info)
 
@@ -33,3 +35,25 @@ https://fuse-box.info/mini/mini-countryman-f60-2017-2022-fuses
   - Driving mode
   - Menu selection
 - Sports Display: cannot figure out how to get it work only in M/S gear, even though check box is coded and shown and selected
+
+## More about Lane Departure Warning (LDW)
+3 prerequisites as far as I know:
+1) you need later than 21-03-xxx i-level, which you can check via the user profile export to USB
+2) you need a vibration steering wheel to receive warning, if your wheel has heating, then it likely has vibration, otherwise...likely no luck
+3) you need a digital KOMBI (digital cockpit, mine is option 6WB) for the status icon to show
+
+Check this post for the coding needed for BDC, KAFAS, HU
+https://www.minif56.com/threads/lane-change-warning-and-lane-departure-warning-on-mini-cooper-2020.92391/
+
+For KOMBI, do below:
+TLC_VERBAUT: nicht_aktiv (00) -> aktiv (01)
+ST_TLC_TIMEOUT: nicht_aktiv (00) -> aktiv (01)
+ST_TLC_ALIVE: nicht_aktiv (00) -> aktiv (01)
+ST_TLC_APPL: nicht_aktiv (00) -> aktiv (01)
+
+But even if the whole coding is successfully applied, and system is up and running, if you don't have a vibration wheel, you won't get any type of warning...I digged a little bit into the coding file today, basically under TLC section (TLC is german for LDW I guess) in KAFAS, it can send 3 messages:
+1) message 327 is sent when KAFAS detects two lanes and informs BDC that the system is working. BDC then tells KOMBI to show a green LDW status icon, showing the system is online
+2) message 18A is sent when you close to one lane, BDC then tells the wheel to vibrate
+3) message 345 can be configured to be sent when you close to one lane, in old systems (which I read in very old post of BMW owners, not MINI), BDC will tell KOMBI to show warning visually using 345
+
+But looking at ComAdapterPdu section of BDC, the treatment of message 345 is just not implemented. So currently only way to receive warning is via a steering wheel vibration. A dumb implementation choice of BMW.
