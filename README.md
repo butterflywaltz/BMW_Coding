@@ -42,16 +42,16 @@ https://fuse-box.info/mini/mini-countryman-f60-2017-2022-fuses
 2) you need a vibration steering wheel to receive warning, if your wheel has heating, then it likely has vibration, otherwise...likely no luck
 3) you need a digital KOMBI (digital cockpit, mine is option 6WB) for the status icon to show
 
-Check this post for the coding needed for BDC, KAFAS, HU
-https://www.minif56.com/threads/lane-change-warning-and-lane-departure-warning-on-mini-cooper-2020.92391/
+Check this post for the coding needed for BDC, KAFAS, HU  
+https://www.minif56.com/threads/lane-change-warning-and-lane-departure-warning-on-mini-cooper-2020.92391/  
 
-For KOMBI, do below:
-TLC_VERBAUT: nicht_aktiv (00) -> aktiv (01)
-ST_TLC_TIMEOUT: nicht_aktiv (00) -> aktiv (01)
-ST_TLC_ALIVE: nicht_aktiv (00) -> aktiv (01)
-ST_TLC_APPL: nicht_aktiv (00) -> aktiv (01)
+For KOMBI, do below:  
+TLC_VERBAUT: nicht_aktiv (00) -> aktiv (01)  
+ST_TLC_TIMEOUT: nicht_aktiv (00) -> aktiv (01)  
+ST_TLC_ALIVE: nicht_aktiv (00) -> aktiv (01)  
+ST_TLC_APPL: nicht_aktiv (00) -> aktiv (01)  
 
-But even if the whole coding is successfully applied, and system is up and running, if you don't have a vibration wheel, you won't get any type of warning...I digged a little bit into the coding file today, basically under TLC section (TLC is german for LDW I guess) in KAFAS, it can send 3 messages:
+But even if the whole coding is successfully applied, and system is up and running, if you don't have a vibration wheel, you won't get any type of warning...I digged a little bit into the coding file today, basically under TLC section (TLC is german for LDW I guess) in KAFAS, it can send 3 messages:  
 1) message 327 is sent when KAFAS detects two lanes and informs BDC that the system is working. BDC then tells KOMBI to show a green LDW status icon, showing the system is online
 2) message 18A is sent when you close to one lane, BDC then tells the wheel to vibrate
 3) message 345 can be configured to be sent when you close to one lane, in old systems (which I read in very old post of BMW owners, not MINI), BDC will tell KOMBI to show warning visually using 345
