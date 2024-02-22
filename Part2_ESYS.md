@@ -1,4 +1,4 @@
-**Programming and flash has risks, read as much as possible to be aware of possible risks and outcomes and proceed at own risk.**  
+**Programming and coding has risks, read as much as possible to be aware of possible risks and outcomes and proceed at own risk.**  
 
 
 
