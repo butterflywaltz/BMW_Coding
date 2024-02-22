@@ -1,3 +1,7 @@
+**Programming and flash has risks, read as much as possible to be aware of possible risks and outcomes and proceed at own risk.**  
+
+
+
 # Where to get E-Sys
 Leave a post in this thread and you should get a starter pack (download and installation guide and usage guides) from Shawn (the absolute pro in the space).
 https://f80.bimmerpost.com/forums/showthread.php?t=1814782
